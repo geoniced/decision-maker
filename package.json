@@ -4,17 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server",
+    "eslint": "eslint --ext .jsx --ext .js src/",
+    "test": "npm run eslint"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/geoniced/decision-maker.git"
-  },
-  "author": "",
+  "author": "geoniced",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/geoniced/decision-maker/issues"
-  },
   "homepage": "https://github.com/geoniced/decision-maker#readme",
   "dependencies": {
     "prop-types": "15.7.2",
