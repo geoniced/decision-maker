@@ -15,7 +15,19 @@ const MainContent = () => {
         <div className="points__total">{points} points</div>
         <div className="points__decision">{getDecision(points)}</div>
 
-        <ProsConsBlock />
+        <ProsConsBlock
+          pros={[{
+            description: `Good`,
+            point: 5,
+          }, {
+            description: `Nice`,
+            point: 2,
+          }]}
+          cons={[{
+            description: `Bad`,
+            point: 3,
+          }]}
+        />
 
         <button
           className="points__button points__button--decrease"
