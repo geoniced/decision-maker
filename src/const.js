@@ -23,3 +23,25 @@ export const getDecisionType = (points) => {
 export const getDecision = (points) => {
   return DecisionTextMap[getDecisionType(points)];
 };
+
+export const countPoints = (prevValue, item) => {
+  return prevValue + item.point;
+};
+
+export const extend = (a, b) => {
+  return Object.assign({}, a, b);
+};
+
+export const mockPros = [{
+  description: `Good`,
+  point: 5,
+}, {
+  description: `Nice`,
+  point: 2,
+}];
+
+export const mockCons = [{
+  description: `Bad`,
+  point: 3,
+}];
+

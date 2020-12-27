@@ -1,54 +1,54 @@
-import React, {useState} from "react";
-import {getDecision} from "../../const";
+import React from "react";
+import PropTypes from "prop-types";
+import {connect} from "react-redux";
+import {countPoints, getDecision} from "../../const";
+import {getCons, getPros} from "../../store/selectors";
 import DecisionsList from "../decisions-list/decisions-list";
 import ProsConsBlock from "../pros-cons-block/pros-cons-block";
 
-const MainContent = () => {
-  const [points, setPoints] = useState(0);
+const getPointsByProsCons = (pros, cons) => {
+  const prosTotal = pros.reduce(countPoints, 0);
+  const consTotal = cons.reduce(countPoints, 0);
 
-  const increasePoints = () => setPoints((prevPoints) => prevPoints + 1);
-  const decreasePoints = () => setPoints((prevPoints) => prevPoints - 1);
+  return prosTotal - consTotal;
+};
+
+const MainContent = (props) => {
+  const {pros, cons} = props;
+
+  const pointsByProsCons = getPointsByProsCons(pros, cons);
 
   return (
     <main className="main-content">
       <div className="main-content__points points">
-        <div className="points__total">{points} points</div>
-        <div className="points__decision">{getDecision(points)}</div>
+        <div className="points__total">{pointsByProsCons} points</div>
+        <div className="points__decision">{getDecision(pointsByProsCons)}</div>
 
         <ProsConsBlock
-          pros={[{
-            description: `Good`,
-            point: 5,
-          }, {
-            description: `Nice`,
-            point: 2,
-          }]}
-          cons={[{
-            description: `Bad`,
-            point: 3,
-          }]}
+          pros={pros}
+          cons={cons}
         />
-
-        <button
-          className="points__button points__button--decrease"
-          type="button"
-          onClick={decreasePoints}
-        >
-          dec
-        </button>
-        <button
-          className="points__button points__button--increase"
-          type="button"
-          onClick={increasePoints}
-        >
-          inc
-        </button>
       </div>
-
 
       <DecisionsList />
     </main>
   );
 };
 
-export default MainContent;
+MainContent.propTypes = {
+  pros: PropTypes.arrayOf(PropTypes.shape({
+    description: PropTypes.string.isRequired,
+    point: PropTypes.number.isRequired,
+  })).isRequired,
+  cons: PropTypes.arrayOf(PropTypes.shape({
+    description: PropTypes.string.isRequired,
+    point: PropTypes.number.isRequired,
+  })).isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  pros: getPros(state),
+  cons: getCons(state),
+});
+
+export default connect(mapStateToProps)(MainContent);
