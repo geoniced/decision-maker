@@ -10,10 +10,10 @@
   width: 300px;
   margin-right: 20px;
   border-collapse: collapse;
-}
 
-.pros-cons__table:last-of-type {
-  margin-right: 0;
+  &:last-of-type {
+    margin-right: 0;
+  }
 }
 
 .pros-cons__cell {
@@ -21,15 +21,15 @@
 
   background-color: #f5f5f5;
   border-bottom: 1px solid #b3b1b1;
-}
 
-.pros-cons__cell--point {
-  text-align: center;
-}
+  &--point {
+    text-align: center;
+  }
 
-.pros-cons__cell--delete {
-  text-align: center;
-  padding: 0;
+  &--delete {
+    text-align: center;
+    padding: 0;
+  }
 }
 
 .pros-cons__delete-button {
@@ -39,15 +39,14 @@
 
   background-color: #f5f5f5;
   border: none;
-}
 
-.pros-cons__delete-button:hover,
-.pros-cons__delete-button:focus {
-  background-color: hsl(0deg, 2%, 42%);
-  color: white;
-}
+  &:hover,
+  &:focus {
+    background-color: hsl(0deg, 2%, 42%);
+    color: white;
+  }
 
-.pros-cons__delete-button:active {
-  background-color: hsl(0deg, 2%, 22%);
+  &:active {
+    background-color: hsl(0deg, 2%, 22%);
+  }
 }
-
