@@ -24,10 +24,7 @@ const MainContent = (props) => {
         <div className="points__total">{pointsByProsCons} points</div>
         <div className="points__decision">{getDecision(pointsByProsCons)}</div>
 
-        <ProsConsBlock
-          pros={pros}
-          cons={cons}
-        />
+        <ProsConsBlock />
       </div>
 
       <DecisionsList />

@@ -1,4 +1,4 @@
-import {extend, mockCons, mockPros} from "../const";
+import {deleteItem, extend, mockCons, mockPros} from "../const";
 import {ActionType} from "./actions";
 
 const initialState = {
@@ -21,6 +21,18 @@ const reducer = (state = initialState, action) => {
 
       return extend(state, {
         cons: extendedCons,
+      });
+    case ActionType.DELETE_PROS_ITEM:
+      const prosWithDeletedItem = deleteItem(state.pros, action.payload);
+
+      return extend(state, {
+        pros: prosWithDeletedItem,
+      });
+    case ActionType.DELETE_CONS_ITEM:
+      const consWithDeletedItem = deleteItem(state.cons, action.payload);
+
+      return extend(state, {
+        cons: consWithDeletedItem,
       });
   }
 

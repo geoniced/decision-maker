@@ -45,3 +45,13 @@ export const mockCons = [{
   point: 3,
 }];
 
+export const deleteItem = (array, deletableItem) => {
+  const arrayCopy = array.slice();
+  const deleteItemIndex = arrayCopy.findIndex((item) => item === deletableItem);
+  const arrayWithoutDeletedItem = [
+    ...arrayCopy.slice(0, deleteItemIndex),
+    ...arrayCopy.slice(deleteItemIndex + 1)
+  ];
+
+  return arrayWithoutDeletedItem;
+};
