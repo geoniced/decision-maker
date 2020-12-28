@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
-import {countPoints, getDecision} from "../../const";
+import {countPoints, getDecision, TotalScoreClass} from "../../const";
 import {getCons, getPros} from "../../store/selectors";
 import DecisionsList from "../decisions-list/decisions-list";
 import ProsConsBlock from "../pros-cons-block/pros-cons-block";
@@ -13,6 +13,18 @@ const getPointsByProsCons = (pros, cons) => {
   return prosTotal - consTotal;
 };
 
+const getDecisionClassName = (points) => {
+  let className = TotalScoreClass.DEFAULT;
+
+  if (points > 0) {
+    className = TotalScoreClass.POSITIVE;
+  } else if (points < 0) {
+    className = TotalScoreClass.NEGATIVE;
+  }
+
+  return className;
+};
+
 const MainContent = (props) => {
   const {pros, cons} = props;
 
@@ -21,8 +33,12 @@ const MainContent = (props) => {
   return (
     <main className="main-content">
       <div className="main-content__points points">
-        <div className="points__total">{pointsByProsCons} points</div>
-        <div className="points__decision">{getDecision(pointsByProsCons)}</div>
+        <div className={`points__total-screen ${getDecisionClassName(pointsByProsCons)}`}>
+          <p className="points__total">
+            <strong>{pointsByProsCons} points</strong>
+          </p>
+          <p className="points__decision">{getDecision(pointsByProsCons)}</p>
+        </div>
 
         <ProsConsBlock />
       </div>

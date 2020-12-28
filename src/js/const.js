@@ -10,6 +10,12 @@ export const DecisionTextMap = {
   [DecisionType.NEUTRAL]: `Your decision has no cons and no pros! It would not make your life easier nor it make it harder`,
 };
 
+export const TotalScoreClass = {
+  DEFAULT: ``,
+  POSITIVE: `points__total-screen--positive`,
+  NEGATIVE: `points__total-screen--negative`,
+};
+
 export const getDecisionType = (points) => {
   if (points > 0) {
     return DecisionType.POSITIVE;
