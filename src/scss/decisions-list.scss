@@ -1,0 +1,37 @@
+.decisions-list__form {
+  display: flex;
+}
+
+.decisions-list__text-input {
+  padding: 10px;
+
+  font-size: 18px;
+  border-radius: 0;
+  border: 1px solid gray;
+  border-right: none;
+}
+
+.decisions-list__decision-value {
+  width: 75px;
+  padding: 10px;
+
+  font-size: 18px;
+  border-radius: 0;
+  border: 1px solid gray;
+  border-right: none;
+}
+
+.decisions-list__add-button {
+  background-color: #f5f5f5;
+  border: 1px solid gray;
+
+  &:hover,
+  &:focus {
+    background-color: hsl(0deg, 2%, 42%);
+    color: white;
+  }
+
+  &:active {
+    background-color: hsl(0deg, 2%, 22%);
+  }
+}
