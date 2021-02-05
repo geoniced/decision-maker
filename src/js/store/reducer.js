@@ -1,9 +1,9 @@
-import {deleteItem, extend, mockCons, mockPros} from "../const";
+import {deleteItem, extend} from "../const";
 import {ActionType} from "./actions";
 
 const initialState = {
-  pros: mockPros,
-  cons: mockCons,
+  pros: [],
+  cons: [],
 };
 
 const reducer = (state = initialState, action) => {
