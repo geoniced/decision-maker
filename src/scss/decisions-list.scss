@@ -2,6 +2,18 @@
   display: flex;
 }
 
+.decisions-list__fieldset {
+  display: flex;
+  margin: 0;
+  padding: 0;
+
+  border: none;
+}
+
+.decisions-list__fieldset-label {
+  margin-bottom: 15px;
+}
+
 .decisions-list__text-input {
   padding: 10px;
 

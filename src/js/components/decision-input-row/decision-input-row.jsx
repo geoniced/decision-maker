@@ -22,25 +22,31 @@ const DecisionInputRow = (props) => {
 
   return (
     <Fragment>
-      <input
-        ref={decisionTextRef}
-        className="decisions-list__text-input"
-        type="text"
-        placeholder="Decision text here..."
-      />
-      <input
-        ref={decisionPointsRef}
-        className="decisions-list__decision-value"
-        type="number"
-        defaultValue="0"
-      />
-      <button
-        onClick={decisionAddHandler}
-        className="decisions-list__add-button"
-        type="button"
-      >
-        Add
-      </button>
+      <fieldset className="decisions-list__fieldset">
+        <legend className="decisions-list__fieldset-label">Enter your pros/cons. For cons use negative values.</legend>
+
+        <input
+          ref={decisionTextRef}
+          className="decisions-list__text-input"
+          type="text"
+          id="decision-text"
+          placeholder="Decision text here..."
+        />
+        <input
+          ref={decisionPointsRef}
+          className="decisions-list__decision-value"
+          type="number"
+          id="decision-value"
+          defaultValue="0"
+        />
+        <button
+          onClick={decisionAddHandler}
+          className="decisions-list__add-button"
+          type="button"
+        >
+          Add
+        </button>
+      </fieldset>
     </Fragment>
   );
 };
