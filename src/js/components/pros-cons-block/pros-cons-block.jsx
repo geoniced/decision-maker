@@ -1,48 +1,50 @@
 import React from "react";
 import PropTypes from "prop-types";
-import ProsConsRow from "../pros-cons-row/pros-cons-row";
 import {connect} from "react-redux";
 import {getCons, getPros} from "../../store/selectors";
-import {deleteConsItem, deleteProsItem} from "../../store/actions";
+import {addConsItem, addProsItem, deleteConsItem, deleteProsItem} from "../../store/actions";
+import DecisionsList from "../decisions-list/decisions-list";
+import ProsConsTable from "../pros-cons-table/pros-cons-table";
+import {DecisionPartText, LabelText} from "../../const";
 
 const ProsConsBlock = (props) => {
-  const {pros, cons, deleteProsItemAction, deleteConsItemAction} = props;
+  const {
+    pros,
+    cons,
+    addProsItemActionHandler,
+    addConsItemActionHandler,
+    deleteProsItemAction,
+    deleteConsItemAction
+  } = props;
 
   return (
     <div className="points__pros-cons pros-cons">
-      <table className="pros-cons__table pros-cons__table--pros">
-        <caption className="pros-cons__caption">Pros</caption>
+      <div className="pros-cons__wrapper">
+        <ProsConsTable
+          title={DecisionPartText.PROS}
+          collection={pros}
+          deleteCollectionItem={deleteProsItemAction}
+        />
 
-        <tbody>
-          {pros.map((item, i) => (
-            <ProsConsRow
-              key={`pros-item-${i}`}
-              description={item.description}
-              point={item.point}
-              onDelete={() => {
-                deleteProsItemAction(item);
-              }}
-            />
-          ))}
-        </tbody>
-      </table>
+        <DecisionsList
+          labelText={LabelText.PROS}
+          addCollectionItem={addProsItemActionHandler}
+        />
+      </div>
 
-      <table className="pros-cons__table pros-cons__table--cons">
-        <caption className="pros-cons__caption">Cons</caption>
+      <div className="pros-cons__wrapper">
+        <ProsConsTable
+          title={DecisionPartText.CONS}
+          collection={cons}
+          deleteCollectionItem={deleteConsItemAction}
+        />
 
-        <tbody>
-          {cons.map((item, i) => (
-            <ProsConsRow
-              key={`cons-item-${i}`}
-              description={item.description}
-              point={item.point}
-              onDelete={() => {
-                deleteConsItemAction(item);
-              }}
-            />
-          ))}
-        </tbody>
-      </table>
+        <DecisionsList
+          labelText={LabelText.CONS}
+          addCollectionItem={addConsItemActionHandler}
+        />
+      </div>
+
     </div>
   );
 };
@@ -56,6 +58,8 @@ ProsConsBlock.propTypes = {
     description: PropTypes.string.isRequired,
     point: PropTypes.number.isRequired,
   })).isRequired,
+  addProsItemActionHandler: PropTypes.func,
+  addConsItemActionHandler: PropTypes.func,
   deleteProsItemAction: PropTypes.func,
   deleteConsItemAction: PropTypes.func,
 };
@@ -66,6 +70,12 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
+  addProsItemActionHandler(description, points) {
+    dispatch(addProsItem(description, points));
+  },
+  addConsItemActionHandler(description, points) {
+    dispatch(addConsItem(description, points));
+  },
   deleteProsItemAction(item) {
     dispatch(deleteProsItem(item));
   },

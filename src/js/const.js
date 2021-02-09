@@ -26,6 +26,16 @@ export const getDecisionType = (points) => {
   return DecisionType.NEUTRAL;
 };
 
+export const LabelText = {
+  PROS: `Enter your pro:`,
+  CONS: `Enter your con:`,
+};
+
+export const DecisionPartText = {
+  PROS: `Pros`,
+  CONS: `Cons`,
+};
+
 export const getDecision = (points) => {
   return DecisionTextMap[getDecisionType(points)];
 };

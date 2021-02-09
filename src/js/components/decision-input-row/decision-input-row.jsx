@@ -1,41 +1,34 @@
 import React, {createRef, Fragment} from "react";
 import PropTypes from "prop-types";
-import {connect} from "react-redux";
-import {addConsItem, addProsItem} from "../../store/actions";
 
 const InputDefault = {
   points: 0,
   text: ``,
 };
 
-const clearInputs = (pointsRef, textRef) => {
-  pointsRef.current.value = InputDefault.points;
+const clearInputs = (textRef, pointsRef) => {
   textRef.current.value = InputDefault.text;
+  pointsRef.current.value = InputDefault.points;
 };
 
 const DecisionInputRow = (props) => {
   const decisionPointsRef = createRef();
   const decisionTextRef = createRef();
 
-  const {addProsItemActionHandler, addConsItemActionHandler} = props;
+  const {labelText, addCollectionItem} = props;
 
   const decisionAddHandler = () => {
     const decisionPoints = Number(decisionPointsRef.current.value);
     const decisionText = decisionTextRef.current.value;
 
-    if (decisionPoints > 0) {
-      addProsItemActionHandler(decisionText, decisionPoints);
-    } else {
-      addConsItemActionHandler(decisionText, decisionPoints * -1);
-    }
-
-    clearInputs(decisionPointsRef, decisionTextRef);
+    addCollectionItem(decisionText, decisionPoints);
+    clearInputs(decisionTextRef, decisionPointsRef);
   };
 
   return (
     <Fragment>
       <fieldset className="decisions-list__fieldset">
-        <legend className="decisions-list__fieldset-label">Enter your pros/cons. For cons use negative values.</legend>
+        <legend className="decisions-list__fieldset-label">{labelText}</legend>
 
         <input
           ref={decisionTextRef}
@@ -48,6 +41,7 @@ const DecisionInputRow = (props) => {
           ref={decisionPointsRef}
           className="decisions-list__decision-value"
           type="number"
+          min="0"
           id="decision-value"
           defaultValue="0"
         />
@@ -64,18 +58,9 @@ const DecisionInputRow = (props) => {
 };
 
 DecisionInputRow.propTypes = {
-  addProsItemActionHandler: PropTypes.func,
-  addConsItemActionHandler: PropTypes.func,
+  labelText: PropTypes.string.isRequired,
+  addCollectionItem: PropTypes.func,
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  addProsItemActionHandler(description, points) {
-    dispatch(addProsItem(description, points));
-  },
-  addConsItemActionHandler(description, points) {
-    dispatch(addConsItem(description, points));
-  },
-});
-
 export {DecisionInputRow};
-export default connect(null, mapDispatchToProps)(DecisionInputRow);
+export default DecisionInputRow;

@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {countPoints} from "../../const";
 import {getCons, getPros} from "../../store/selectors";
-import DecisionsList from "../decisions-list/decisions-list";
 import ProsConsBlock from "../pros-cons-block/pros-cons-block";
 import DecisionTitleForm from "../decision-title-form/decision-title-form";
 import PointsTotalScreen from "../points-total-screen/points-total-screen";
@@ -29,8 +28,6 @@ const MainContent = (props) => {
 
         <ProsConsBlock />
       </div>
-
-      <DecisionsList />
     </main>
   );
 };
