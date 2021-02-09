@@ -15,8 +15,8 @@
 }
 
 .pros-cons__table {
-  width: 300px;
-  margin-bottom: 30px;
+  width: 320px;
+  margin-bottom: 0;
 
   border-collapse: collapse;
 }
@@ -24,6 +24,10 @@
 .pros-cons__caption {
   padding: 20px;
   font-size: 24px;
+}
+
+.pros-cons__row:last-of-type .pros-cons__cell{
+  border-bottom: none;
 }
 
 .pros-cons__cell {

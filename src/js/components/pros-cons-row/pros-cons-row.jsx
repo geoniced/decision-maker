@@ -13,7 +13,7 @@ const ProsConsRow = (props) => {
           onClick={onDelete}
           className="pros-cons__delete-button"
         >
-          <span className="visually-hidden">
+          <span>
             del
           </span>
         </button>

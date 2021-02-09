@@ -28,7 +28,7 @@ const DecisionInputRow = (props) => {
   return (
     <Fragment>
       <fieldset className="decisions-list__fieldset">
-        <legend className="decisions-list__fieldset-label">{labelText}</legend>
+        <legend className="decisions-list__fieldset-label visually-hidden">{labelText}</legend>
 
         <input
           ref={decisionTextRef}
