@@ -3,6 +3,16 @@ import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {addConsItem, addProsItem} from "../../store/actions";
 
+const InputDefault = {
+  points: 0,
+  text: ``,
+};
+
+const clearInputs = (pointsRef, textRef) => {
+  pointsRef.current.value = InputDefault.points;
+  textRef.current.value = InputDefault.text;
+};
+
 const DecisionInputRow = (props) => {
   const decisionPointsRef = createRef();
   const decisionTextRef = createRef();
@@ -18,6 +28,8 @@ const DecisionInputRow = (props) => {
     } else {
       addConsItemActionHandler(decisionText, decisionPoints * -1);
     }
+
+    clearInputs(decisionPointsRef, decisionTextRef);
   };
 
   return (
