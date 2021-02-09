@@ -1,29 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
-import {countPoints, getDecision, TotalScoreClass} from "../../const";
+import {countPoints} from "../../const";
 import {getCons, getPros} from "../../store/selectors";
 import DecisionsList from "../decisions-list/decisions-list";
 import ProsConsBlock from "../pros-cons-block/pros-cons-block";
 import DecisionTitleForm from "../decision-title-form/decision-title-form";
+import PointsTotalScreen from "../points-total-screen/points-total-screen";
 
 const getPointsByProsCons = (pros, cons) => {
   const prosTotal = pros.reduce(countPoints, 0);
   const consTotal = cons.reduce(countPoints, 0);
 
   return prosTotal - consTotal;
-};
-
-const getDecisionClassName = (points) => {
-  let className = TotalScoreClass.DEFAULT;
-
-  if (points > 0) {
-    className = TotalScoreClass.POSITIVE;
-  } else if (points < 0) {
-    className = TotalScoreClass.NEGATIVE;
-  }
-
-  return className;
 };
 
 const MainContent = (props) => {
@@ -34,14 +23,9 @@ const MainContent = (props) => {
   return (
     <main className="main-content">
       <div className="main-content__points points">
-        <DecisionTitleForm />
+        <PointsTotalScreen pointsByProsCons={pointsByProsCons} />
 
-        <div className={`points__total-screen ${getDecisionClassName(pointsByProsCons)}`}>
-          <p className="points__total">
-            <strong>{pointsByProsCons} points</strong>
-          </p>
-          <p className="points__decision">{getDecision(pointsByProsCons)}</p>
-        </div>
+        <DecisionTitleForm />
 
         <ProsConsBlock />
       </div>
