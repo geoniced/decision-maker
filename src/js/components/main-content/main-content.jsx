@@ -5,6 +5,7 @@ import {countPoints, getDecision, TotalScoreClass} from "../../const";
 import {getCons, getPros} from "../../store/selectors";
 import DecisionsList from "../decisions-list/decisions-list";
 import ProsConsBlock from "../pros-cons-block/pros-cons-block";
+import DecisionTitleForm from "../decision-title-form/decision-title-form";
 
 const getPointsByProsCons = (pros, cons) => {
   const prosTotal = pros.reduce(countPoints, 0);
@@ -33,6 +34,8 @@ const MainContent = (props) => {
   return (
     <main className="main-content">
       <div className="main-content__points points">
+        <DecisionTitleForm />
+
         <div className={`points__total-screen ${getDecisionClassName(pointsByProsCons)}`}>
           <p className="points__total">
             <strong>{pointsByProsCons} points</strong>
