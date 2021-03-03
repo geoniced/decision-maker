@@ -9,7 +9,6 @@
 }
 
 html {
-  font-family: "Open Sans", "Arial", sans-serif;
   box-sizing: border-box;
 }
 
@@ -17,6 +16,13 @@ html {
 *::before,
 *::after {
   box-sizing: inherit;
+}
+
+body {
+  font-family: "Open Sans", "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  min-width: $mobile-width;
 }
 
 .visually-hidden:not(:focus):not(:active),
@@ -36,3 +42,4 @@ input[type="radio"].visually-hidden {
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
+
