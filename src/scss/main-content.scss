@@ -1,4 +1,18 @@
-.main-content {
-  width: 800px;
+.main-content__wrapper {
+  width: $desktop-width;
   margin: 0 auto;
+}
+
+@media (max-width: $desktop-width) {
+  .main-content__wrapper {
+    width: $tablet-width;
+  }
+}
+
+@media (max-width: $tablet-width) {
+  .main-content__wrapper {
+    width: 80%;
+    min-width: $mobile-width;
+    flex-direction: column;
+  }
 }

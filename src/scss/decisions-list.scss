@@ -50,3 +50,22 @@
     background-color: hsl(0deg, 2%, 22%);
   }
 }
+
+@media (max-width: $tablet-width) {
+  .decisions-list {
+    width: 100%;
+  }
+
+  .decisions-list__form {
+    width: 100%;
+  }
+
+  .decisions-list__fieldset {
+    width: 100%;
+  }
+
+  .decisions-list__text-input {
+    width: auto;
+    flex-grow: 1;
+  }
+}

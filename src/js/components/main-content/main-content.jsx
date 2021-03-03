@@ -21,12 +21,14 @@ const MainContent = (props) => {
 
   return (
     <main className="main-content">
-      <div className="main-content__points points">
-        <PointsTotalScreen pointsByProsCons={pointsByProsCons} />
+      <div className="main-content__wrapper">
+        <section className="main-content__points points">
+          <PointsTotalScreen pointsByProsCons={pointsByProsCons} />
 
-        <DecisionTitleForm />
+          <DecisionTitleForm />
 
-        <ProsConsBlock />
+          <ProsConsBlock />
+        </section>
       </div>
     </main>
   );

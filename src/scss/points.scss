@@ -1,4 +1,6 @@
 .points__total-screen {
+  width: 780px;
+  margin: 0 auto;
   margin-top: 50px;
   margin-bottom: 50px;
   padding: 30px;
@@ -32,4 +34,10 @@
 .points__decision {
   margin: 0;
   padding: 0;
+}
+
+@media (max-width: $desktop-width) {
+  .points__total-screen {
+    width: auto;
+  }
 }
