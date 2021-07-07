@@ -1,0 +1,70 @@
+.decisions-list__form {
+  display: flex;
+  width: 320px;
+}
+
+.decisions-list__fieldset {
+  display: flex;
+  margin: 0;
+  padding: 0;
+
+  border: none;
+}
+
+.decisions-list__fieldset-label {
+  margin-bottom: 15px;
+}
+
+.decisions-list__text-input {
+  width: 220px;
+  padding: 10px;
+
+  font-size: 18px;
+  border-radius: 0;
+  border: 1px solid gray;
+  border-right: none;
+}
+
+.decisions-list__decision-value {
+  width: 50px;
+  padding: 10px;
+
+  font-size: 18px;
+  border-radius: 0;
+  border: 1px solid gray;
+  border-right: none;
+}
+
+.decisions-list__add-button {
+  width: 50px;
+  background-color: #f5f5f5;
+  border: 1px solid gray;
+
+  &:hover,
+  &:focus {
+    background-color: hsl(0deg, 2%, 42%);
+    color: white;
+  }
+
+  &:active {
+    background-color: hsl(0deg, 2%, 22%);
+  }
+}
+
+@media (max-width: $tablet-width) {
+  .decisions-list {
+    width: 100%;
+  }
+
+  .decisions-list__form {
+    width: 100%;
+  }
+
+  .decisions-list__fieldset {
+    width: 100%;
+  }
+
+  .decisions-list__text-input {
+    width: 100%;
+  }
+}

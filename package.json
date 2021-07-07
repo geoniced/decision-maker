@@ -1,0 +1,41 @@
+{
+  "name": "decision-maker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server",
+    "eslint": "eslint --ext .jsx --ext .js src/",
+    "test": "npm run eslint"
+  },
+  "author": "geoniced",
+  "license": "ISC",
+  "homepage": "https://github.com/geoniced/decision-maker#readme",
+  "dependencies": {
+    "prop-types": "15.7.2",
+    "react": "16.12.0",
+    "react-dom": "16.12.0",
+    "react-redux": "7.2.2",
+    "react-router-dom": "5.1.2",
+    "redux": "4.0.5"
+  },
+  "devDependencies": {
+    "@babel/core": "7.8.7",
+    "@babel/preset-env": "7.8.7",
+    "@babel/preset-react": "7.8.3",
+    "babel-loader": "8.1.0",
+    "copy-webpack-plugin": "6.0.3",
+    "css-loader": "5.0.1",
+    "eslint": "5.13.0",
+    "eslint-config-htmlacademy": "0.5.2",
+    "eslint-plugin-react": "7.18.3",
+    "mini-css-extract-plugin": "1.3.3",
+    "node-sass": "5.0.0",
+    "redux-devtools-extension": "2.13.8",
+    "sass-loader": "10.1.0",
+    "webpack": "4.41.6",
+    "webpack-cli": "3.3.12",
+    "webpack-dev-server": "3.10.3"
+  }
+}

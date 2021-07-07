@@ -1,0 +1,43 @@
+.points__total-screen {
+  width: 780px;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding: 30px;
+
+  background-color: hsl(0, 0%, 89%);
+  color: hsl(0, 0%, 10%);
+  border: 2px solid hsl(0, 0%, 69%);
+  border-radius: 7px;
+
+  &--positive {
+    border-color: hsl(134, 78%, 56%);
+    background-color:hsl(134, 78%, 90%);
+    color: hsl(134, 78%, 15%)
+  }
+
+  &--negative {
+    border-color: hsl(0, 78%, 56%);
+    background-color:hsl(0, 78%, 90%);
+    color: hsl(0, 78%, 15%)
+  }
+}
+
+.points__total {
+  margin: 0;
+  margin-bottom: 20px;
+  padding: 0;
+
+  font-size: 24px;
+}
+
+.points__decision {
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: $desktop-width) {
+  .points__total-screen {
+    width: auto;
+  }
+}
